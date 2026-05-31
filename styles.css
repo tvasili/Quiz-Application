@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("./Thinking.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #faf4f4;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  width: 60%;
+  max-width: 350px;
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  z-index: 2;
+  margin-right: 100px;
+}
+
+li.correct {
+  background-color: #44ff98 !important;
+  color: #155724 !important;
+  border: 2px solid #03e538;
+  font-weight: bold;
+}
+
+li.wrong {
+  background-color: #ff4050 !important;
+  color: #721c24 !important;
+  border: 2px solid #f5c6cb;
+}
+
+#choices-list li {
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  list-style-type: none;
+  transition: background-color 0.2s ease;
+}
+
+#choices-list li:hover {
+  background-color: #98e5ff;
+}
+
+h1,
+h2 {
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #333333;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+li:hover {
+  background-color: #6200ea;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #174b34;
+  border: none;
+  border-radius: 5px;
+  color: rgb(250, 243, 248);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #93ff83;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 850px) {
+
+  body::before,
+  body::after {
+    display: none;
+  }
+}
+
+.animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 50px;
+  height: 65px;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  animation: floatUp 4s linear forwards;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 22px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 8px solid currentColor;
+}
+
+.crying-emoji {
+  position: absolute;
+  top: -50px;
+  font-size: 2.2rem;
+  animation: fallDown 3.5s linear forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-125vh) translateX(var(--drift)) rotate(var(--rotation));
+    opacity: 0;
+  }
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(125vh) translateX(var(--drift)) rotate(var(--rotation));
+    opacity: 0;
+  }
+}
